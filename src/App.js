@@ -1,12 +1,12 @@
 import './App.css';
 import Header from './components/Header/Header';
-import SimpleModal from "./components/SignIn/SignIn"
+// import BasicModal from './components/Header/Modal';
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      {/* <SimpleModal></SimpleModal> */}
+      <Header />
+      {/* <BasicModal/> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import {
   AppBar,
   Toolbar,
@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const SignInBody = forwardRef((props, ref) => <SignIn {...props} />)
+const SignUpBody = forwardRef((props, ref) => <SignUp {...props}/>)
+
 function Header() {
   const [openSignIn, setOpenSignIn] = useState(false);
   const [openSignUp, setOpenSignUp] = useState(false);
@@ -49,37 +52,37 @@ function Header() {
     setOpenSignUp(false);
   };
   const classes = useStyles();
-  const signInBody = <SignIn />;
-  const signUpBody = <SignUp />;
 
   return (
-    <AppBar position="static" className={classes.BGcolor}>
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          aria-label="menu"
-          sx={{ flexGrow: 1 }}
-        >
-          <Icon>menu</Icon>
-        </IconButton>
-        <Typography variant="h4" className={classes.title}>
-          Best Buzza
-        </Typography>
-        <Button color="inherit" onClick={handleOpenSignIn}>
-          Вход
-        </Button>
-        <Button color="inherit" onClick={handleOpenSignUp}>
-          Регистрация
-        </Button>
-      </Toolbar>
+    <>
+      <AppBar position="static" className={classes.BGcolor}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            aria-label="menu"
+            sx={{ flexGrow: 1 }}
+          >
+            <Icon>menu</Icon>
+          </IconButton>
+          <Typography variant="h4" className={classes.title}>
+            Best Buzza
+          </Typography>
+          <Button color="inherit" onClick={handleOpenSignIn}>
+            Вход
+          </Button>
+          <Button color="inherit" onClick={handleOpenSignUp}>
+            Регистрация
+          </Button>
+        </Toolbar>
+      </AppBar>
       <Modal
         open={openSignIn}
         onClose={handleCloseSignIn}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        {signInBody}
+        <SignInBody/>
       </Modal>
       <Modal
         open={openSignUp}
@@ -87,9 +90,9 @@ function Header() {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        {signUpBody}
+        <SignUpBody/>
       </Modal>
-    </AppBar>
+    </>
   );
 }
 
