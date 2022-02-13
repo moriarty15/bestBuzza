@@ -1,12 +1,14 @@
 import './App.css';
 import Header from './components/Header/Header';
-// import BasicModal from './components/Header/Modal';
+import Hero from "./components/Hero/Hero";
+import RecipeReviewCard from "./components/Cards/Cards"
 
 function App() {
   return (
     <div className="App">
       <Header />
-      {/* <BasicModal/> */}
+      <Hero />
+      <RecipeReviewCard/>
     </div>
   );
 }

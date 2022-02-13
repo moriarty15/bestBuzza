@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: "#ffffff",
-    width: "520px",
+    maxWidth: "520px",
     height: "520px",
     paddingTop: "20px",
     borderRadius: "4px",
